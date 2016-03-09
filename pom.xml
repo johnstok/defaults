@@ -191,11 +191,30 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <configLocation>${iaj.checkstyle.config}</configLocation>
-                    <headerLocation>${iaj.checkstyle.license}</headerLocation>
+                <version>2.17</version>
+                <dependencies>
+					<dependency>
+						<groupId>com.johnstok</groupId>
+						<artifactId>ide-config</artifactId>
+						<version>0.0.1-SNAPSHOT</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+			         <encoding>UTF-8</encoding>
+			         <violationSeverity>warning</violationSeverity>
+			         <linkXRef>false</linkXRef>
+                    <configLocation>checkstyle/checkstyle.xml</configLocation>
+                    <headerLocation>checkstyle/LICENSE.txt</headerLocation>
                 </configuration>
+                <executions>
+			     <execution>
+			       <id>checkstyle check</id>
+			       <phase>validate</phase>
+			       <goals>
+			         <goal>check</goal>
+			       </goals>
+			     </execution>
+			   </executions>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
