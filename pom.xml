@@ -16,6 +16,24 @@
 
         <!-- Plug-in versions - should be 'plugin.version.{artifactId}' -->
         <plugin.version.maven-dependency-plugin>2.4</plugin.version.maven-dependency-plugin>
+        <plugin.version.exec>1.2.1</plugin.version.exec>
+        <plugin.version.emma>2.1.5320</plugin.version.emma>
+        <plugin.version.buildnumber>1.1</plugin.version.buildnumber>
+        <plugin.version.jar>2.3.1</plugin.version.jar>
+        <plugin.version.surefire>2.9</plugin.version.surefire>
+        <plugin.version.compiler>2.3.2</plugin.version.compiler>
+        <plugin.version.resources>2.4</plugin.version.resources>
+        <plugin.version.source>2.1.2</plugin.version.source>
+        <plugin.version.release>2.2</plugin.version.release>
+        <plugin.version.javadoc>2.8</plugin.version.javadoc>
+        <plugin.version.findbugs>3.0.3</plugin.version.findbugs>
+        <plugin.version.checkstyle>2.17</plugin.version.checkstyle>
+        <plugin.version.versions>2.2</plugin.version.versions>
+        <plugin.version.eclipse-lifecycle>1.0.0</plugin.version.eclipse-lifecycle>
+        
+        <!-- Extension versions - should be 'extension.version.{artifactId}' -->
+        <extension.version.aws-maven>5.0.0.RELEASE</extension.version.aws-maven>
+        <extension.version.ide-config>0.0.1-SNAPSHOT</extension.version.ide-config>
 
         <!-- Plug-in settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -87,7 +105,7 @@
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
+                    <version>${plugin.version.eclipse-lifecycle}</version>
                     <configuration>
                         <lifecycleMappingMetadata>
                             <pluginExecutions>
@@ -116,7 +134,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>${plugin.version.jar}</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -133,13 +151,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.9</version>
+                <version>${plugin.version.surefire}</version>
                 <configuration />
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>${plugin.version.compiler}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -150,7 +168,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.4</version>
+                <version>${plugin.version.resources}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -158,13 +176,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
+                <version>${plugin.version.source}</version>
                 <configuration />
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.2</version>
+                <version>${plugin.version.release}</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
@@ -172,12 +190,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8</version>
+                <version>${plugin.version.javadoc}</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.3</version>
+                <version>${plugin.version.findbugs}</version>
                 <configuration>
                     <xmlOutput>true</xmlOutput>
                     <effort>Max</effort>
@@ -197,7 +215,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.17</version>
+                <version>${plugin.version.checkstyle}</version>
                 <dependencies>
 					<dependency>
 						<groupId>com.johnstok</groupId>
@@ -225,13 +243,13 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>emma-maven-plugin</artifactId>
-                <version>2.1.5320</version>
+                <version>${plugin.version.emma}</version>
                 <configuration />
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>${plugin.version.exec}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -250,24 +268,29 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>${plugin.version.buildnumber}</version>
                 <configuration>
                     <doCheck>true</doCheck>
                     <doUpdate>false</doUpdate>
                 </configuration>
             </plugin>
+			<plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>versions-maven-plugin</artifactId>
+		        <version>${plugin.version.versions}</version>
+		      </plugin>
         </plugins>
 
         <extensions>
             <extension>
                 <groupId>org.springframework.build</groupId>
                 <artifactId>aws-maven</artifactId>
-                <version>5.0.0.RELEASE</version>
+                <version>${extension.version.aws-maven}</version>
             </extension>
             <extension>
    				<groupId>com.johnstok</groupId>
 				<artifactId>ide-config</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${extension.version.ide-config}</version>
             </extension>
         </extensions>
 
