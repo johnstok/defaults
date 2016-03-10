@@ -177,16 +177,22 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.0.3</version>
                 <configuration>
-                    <findbugsXmlOutput>true</findbugsXmlOutput>
                     <xmlOutput>true</xmlOutput>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
-                    <excludeFilterFile>
-                        config/findbugs-excludes.xml
-                    </excludeFilterFile>
+                    <maxRank>20</maxRank>
+                    <excludeFilterFile>findbugs/findbugs-excludes.xml</excludeFilterFile>
                 </configuration>
+                <executions>
+			     <execution>
+			       <id>findbugs check</id>
+			       <goals>
+			         <goal>check</goal>
+			       </goals>
+			     </execution>
+			   </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -257,6 +263,11 @@
                 <groupId>org.springframework.build</groupId>
                 <artifactId>aws-maven</artifactId>
                 <version>5.0.0.RELEASE</version>
+            </extension>
+            <extension>
+   				<groupId>com.johnstok</groupId>
+				<artifactId>ide-config</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
             </extension>
         </extensions>
 
