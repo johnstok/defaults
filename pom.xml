@@ -314,5 +314,9 @@
         </extensions>
 
     </build>
+    
+    <scm>
+    <connection>scm:git:file://${basedir}</connection>
+</scm>
 
 </project>
