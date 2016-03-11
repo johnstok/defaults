@@ -177,7 +177,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>${plugin.version.source}</version>
-                <configuration />
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -204,7 +203,11 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${plugin.version.release}</version>
                 <configuration>
+                	<remoteTagging>false</remoteTagging>
+                	<pushChanges>false</pushChanges>
+                	<suppressCommitBeforeBranch>true</suppressCommitBeforeBranch>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <scmCommentPrefix></scmCommentPrefix>
                 </configuration>
             </plugin>
             <plugin>
